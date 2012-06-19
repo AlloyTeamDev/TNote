@@ -31,7 +31,7 @@ Jx().$package('tn.net', function(J){
                 if(callback){
                     callback(data);
                 }else{
-                    J.event.notifyObservers(packageContext, apiName + 'Failure', data);
+                    J.event.notifyObservers(packageContext, apiName + 'Timeout', data);
                 }
             },
             onSuccess: function(data){

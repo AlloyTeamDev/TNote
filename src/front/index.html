@@ -2,8 +2,53 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>TNote</title>
+    <title>TNote beta</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<div id="content" class="content">
+    
+</div>
+<!-- templates -->
+<script id="contentTmpl" type="template">
+<header cmd="void">
+    <div class="title">TNote</div>
+    <div class="toolbar">
+        <a href="javascript:void(0);" cmd="new" class="button">[<%=tn.i18n.getMessage('new')%>]</a>
+        <a href="javascript:void(0);" cmd="order" class="button">[<%=tn.i18n.getMessage('order')%>]</a>
+    </div>
+</header>
+<div class="body" cmd="void">
+    <ul id="noteList" class="note-list">
+        <li>
+            <div class="note-item-title">最后的日志</div>
+            <div class="note-item-content">最后的日志最后的日志</div>
+            <div class="note-item-meta">
+                <span class="note-item-time">2012/12/19</span>
+            </div>
+        </li>
+    </ul>
+</div>
+<footer></footer>
+</script>
+<!-- end of templates -->
+<!-- scripts -->
+<script out="js/jx.all.js" type="text/javascript" src="js/jx.core.js"></script>
+<script out="js/jx.all.js" type="text/javascript" src="js/jx.base.js"></script>
+<script out="js/jx.all.js" type="text/javascript" src="js/jx.browser.js"></script>
+<script out="js/jx.all.js" type="text/javascript" src="js/jx.dom.js"></script>
+<script out="js/jx.all.js" type="text/javascript" src="js/jx.event.js"></script>
+<script out="js/jx.all.js" type="text/javascript" src="js/jx.format.js"></script>
+<script out="js/jx.all.js" type="text/javascript" src="js/jx.string.js"></script>
 
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.start.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.config.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.main.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.model.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.net.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.storage.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.template.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.util.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.view.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.i18n.js"></script>
 

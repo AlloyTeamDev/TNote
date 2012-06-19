@@ -1,0 +1,76 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+html{ overflow:hidden !important;/* jx 库会给html写overflow-y: auto;*/ }
+ul, li, button{
+    margin: 0;
+    padding: 0;
+}
+ul, li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    text-decoration: underline;
+}
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+}
+body, textarea, button, input{
+    font-family: tahoma, '微软雅黑', '宋体',helvetica,clean,sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.content{
+    height: 100%;
+    color: #fff;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    background: -webkit-linear-gradient(120deg, #80B3CC, #1A76A3);
+}
+header{
+    position: relative;
+}
+.title{
+    font-size: 80px;
+    text-indent: 0.5em;
+}
+
+.toolbar {
+    font-size: 20px;
+    position: absolute;
+    bottom: 1em;
+    right: 0.5em;
+}
+.toolbar .button{
+    margin: 0 5px;
+}
+
+/********************** note-list ********/
+.note-item-title{
+    font-size: 30px;
+}
+.note-item-content{
+
+}
+.note-item-meta{
+    text-align: right;
+}
+
+/********************* note-item color **********/
+.note-item{
+
+}

@@ -11,8 +11,11 @@ Jx().$package('tn.net', function(J){
         }
         var apiUrl = apiRoot + apiObj.url;
         param = param || {};
+        if(packageContext[apiName]){//如果有预处理参数的方法, 先调用
+            param = packageContext[apiName](param);
+        }
         if(apiObj.param){
-            param = J.extend(param, apiObj.param);
+            param = J.extend({}, apiObj.param, param);
         }
         var option = {
             data: param,
@@ -47,5 +50,10 @@ Jx().$package('tn.net', function(J){
         J.http.ajax(apiUrl, option);
     }//end require
     
+    // this.addNote = function(note){
+    //     var param = note;
+    //     //TODO
+    //     return param;
+    // }
     
 });//end package

@@ -6,8 +6,9 @@ Jx().$package('tn.main', function(J){
         tn.view.init();
         //... any other logic
         //
-        
-        // J.event.notifyObservers(packageContext, 'systemReady');
+    
+        //main logic
+        J.event.notifyObservers(packageContext, 'systemReady');
     }
 
 });

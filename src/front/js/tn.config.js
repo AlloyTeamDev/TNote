@@ -2,26 +2,27 @@ Jx().$package('tn.config', function(J){
 
     this.API_ROOT = 'http://tnote.alloyteam.com/';
     this.API_MAP = {
-        'list': {
-            url: 'server/list.php',
+        'listNote': {
+            url: 'server/list-note.php',
             param: {
                 // start: 0,
                 // limit: 10
             }
         },
-        'add':{
-            url: 'server/add.php'
+        'addNote':{
+            url: 'server/add-note.php'
         },
-        'get': {
-            url: 'server/get.php'
+        'getNote': {
+            url: 'server/get-note.php'
         },
-        'edit': {
-            url: 'server/edit.php'
+        'editNote': {
+            url: 'server/edit-note.php'
         },
-        'delete':{
-            url: 'server/delete.php'
+        'deleteNote':{
+            url: 'server/delete-note.php'
         }
     };
 
+    this.LOCAL_CACHE_NOTE_COUNT =  10;
 
 });

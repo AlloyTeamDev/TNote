@@ -8,9 +8,9 @@ Jx().$package('tn.view.editor', function(J){
         'save': function(param, target, event){
             var note = getNoteValue();
             if(note){
-                tn.storage.save(note);
+                tn.model.saveNote(note);
+                packageContext.hide();
             }
-            packageContext.hide();
         }
     }
 
@@ -21,6 +21,9 @@ Jx().$package('tn.view.editor', function(J){
 
         J.event.addObserver(tn.view, 'resize', observer.onResize);
     }
+
+    //******************************************
+    //public method
 
     this.show = function(note){
         var data = { isEditing: false };
@@ -51,6 +54,9 @@ Jx().$package('tn.view.editor', function(J){
         return editorShowing;
     }
 
+    //******************************************
+    //observer
+
     var observer = {
         onResize: function(size){
             if(editorShowing && editorEditing){
@@ -59,6 +65,8 @@ Jx().$package('tn.view.editor', function(J){
         }
     };
 
+    //********************************************************************
+    //private method
     var resizeTextarea = function(){
         var editorContent = editorEl.querySelector('div.note-editor-content');
         var textarea = editorContent.querySelector('textarea');
@@ -90,7 +98,9 @@ Jx().$package('tn.view.editor', function(J){
             tn.view.alert('"content" ' + tn.i18n.getMessage('mustfilled'));
             return false;
         }
-
+        if(!title){
+            title = tn.i18n.getMessage('unnamed');
+        }
         var note = {
             title: title,
             content: content,

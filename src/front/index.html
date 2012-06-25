@@ -22,77 +22,6 @@
 <div class="body" cmd="void">
     <div class="note-list-container">
         <ul id="noteList" class="note-list">
-            <li class="note-item">
-                <div class="note-item-title">最后的日志</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
-
-            <li class="note-item">
-                <div class="note-item-title">1</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
-            <li class="note-item">
-                <div class="note-item-title">2</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
-            <li class="note-item">
-                <div class="note-item-title">3</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
-            <li class="note-item">
-                <div class="note-item-title">4</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
-            <li class="note-item">
-                <div class="note-item-title">5</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
-            <li class="note-item">
-                <div class="note-item-title">6</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
-            <li class="note-item">
-                <div class="note-item-title">7</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
-            <li class="note-item">
-                <div class="note-item-title">8</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
-            <li class="note-item">
-                <div class="note-item-title">9</div>
-                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
-                <div class="note-item-meta">
-                    <span class="note-item-time">2012/12/19</span>
-                </div>
-            </li>
         </ul>
     </div>
     <div id="noteEditor" class="note-editor-container" cmd="void" style="display: none;">
@@ -100,7 +29,16 @@
 </div>
 <footer></footer>
 </script>
-<script id="editorTmpl" type="template">
+<script id="editorTmpl" type="text/plain">
+<li class="note-item">
+    <div class="note-item-title"><%=note.title%></div>
+    <div class="note-item-content"><%=note.content%></div>
+    <div class="note-item-meta">
+        <span class="note-item-time"><%=dateFormat(note.createTime, 'YYYY-MM-DD')%></span>
+    </div>
+</li>
+</script>
+<script id="editorTmpl" type="text/plain">
 <div class="note-editor <%=isEditing ? 'editing' : ''%>">
     <div class="note-editor-header">
         <div class="note-editor-time">
@@ -145,6 +83,7 @@
 <script out="js/jx.all.js" type="text/javascript" src="js/jx.event.js"></script>
 <script out="js/jx.all.js" type="text/javascript" src="js/jx.format.js"></script>
 <script out="js/jx.all.js" type="text/javascript" src="js/jx.string.js"></script>
+<script out="js/jx.all.js" type="text/javascript" src="js/jx.http.js"></script>
 
 <script out="js/tnote.all.js" type="text/javascript" src="js/tn.start.js"></script>
 <script out="js/tnote.all.js" type="text/javascript" src="js/tn.config.js"></script>
@@ -157,3 +96,4 @@
 <script out="js/tnote.all.js" type="text/javascript" src="js/tn.view.js"></script>
 <script out="js/tnote.all.js" type="text/javascript" src="js/tn.i18n.js"></script>
 <script out="js/tnote.all.js" type="text/javascript" src="js/tn.view.editor.js"></script>
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.ui.js"></script>

@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>TNote beta</title>
+    <link type="text/css" rel="stylesheet" href="http://qplus1.idqqimg.com/module/common/scrollbar/scrollstyle.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -19,17 +20,121 @@
     </div>
 </header>
 <div class="body" cmd="void">
-    <ul id="noteList" class="note-list">
-        <li>
-            <div class="note-item-title">最后的日志</div>
-            <div class="note-item-content">最后的日志最后的日志</div>
-            <div class="note-item-meta">
-                <span class="note-item-time">2012/12/19</span>
-            </div>
-        </li>
-    </ul>
+    <div class="note-list-container">
+        <ul id="noteList" class="note-list">
+            <li class="note-item">
+                <div class="note-item-title">最后的日志</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+
+            <li class="note-item">
+                <div class="note-item-title">1</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+            <li class="note-item">
+                <div class="note-item-title">2</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+            <li class="note-item">
+                <div class="note-item-title">3</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+            <li class="note-item">
+                <div class="note-item-title">4</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+            <li class="note-item">
+                <div class="note-item-title">5</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+            <li class="note-item">
+                <div class="note-item-title">6</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+            <li class="note-item">
+                <div class="note-item-title">7</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+            <li class="note-item">
+                <div class="note-item-title">8</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+            <li class="note-item">
+                <div class="note-item-title">9</div>
+                <div class="note-item-content">最后的日志最后的日志最后的日志最后的日志最后的日志最后的日志</div>
+                <div class="note-item-meta">
+                    <span class="note-item-time">2012/12/19</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="noteEditor" class="note-editor-container" cmd="void" style="display: none;">
+    </div>
 </div>
 <footer></footer>
+</script>
+<script id="editorTmpl" type="template">
+<div class="note-editor <%=isEditing ? 'editing' : ''%>">
+    <div class="note-editor-header">
+        <div class="note-editor-time">
+<% if(isEditing){ %>
+            <input required pattern="\\d{4}/\\d{2}/\\d{2}"  placeholder="xxxx/xx/xx" value="<%=note.createTime || ''%>">
+<% }else{ %>
+            <span class="value"><%=note.createTime %></span>
+<% } %>
+        </div>
+        <div class="note-editor-title">
+<% if(isEditing){ %>
+            <input required placeholder="title">
+<% }else{ %>
+            <span class="value"><%=note.title %></span>
+<% } %>
+        </div>
+        <div class="note-editor-action">
+<% if(isEditing){ %>
+            <a href="javascript:void(0);" cmd="save" class="button save-button">[<%=tn.i18n.getMessage('save')%>]</a>
+<% }else{ %>
+            <a href="javascript:void(0);" cmd="edit" class="button edit-button">[<%=tn.i18n.getMessage('edit')%>]</a>
+<% } %>
+        </div>
+    </div>
+    <div class="note-editor-body">
+        <div class="note-editor-content">
+<% if(isEditing){ %>
+            <textarea required placeholder="some text"></textarea>
+<% }else{ %>
+            <%=note.content%>
+<% } %>    
+        </div>
+    </div>
+</div>
 </script>
 <!-- end of templates -->
 <!-- scripts -->
@@ -51,4 +156,4 @@
 <script out="js/tnote.all.js" type="text/javascript" src="js/tn.util.js"></script>
 <script out="js/tnote.all.js" type="text/javascript" src="js/tn.view.js"></script>
 <script out="js/tnote.all.js" type="text/javascript" src="js/tn.i18n.js"></script>
-
+<script out="js/tnote.all.js" type="text/javascript" src="js/tn.view.editor.js"></script>

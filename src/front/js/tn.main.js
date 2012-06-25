@@ -7,7 +7,7 @@ Jx().$package('tn.main', function(J){
         //... any other logic
         //
         
-        J.event.notifyObservers(packageContext, 'systemReady');
+        // J.event.notifyObservers(packageContext, 'systemReady');
     }
 
 });

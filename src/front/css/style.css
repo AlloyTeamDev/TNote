@@ -43,6 +43,15 @@ body, textarea, button, input{
 }
 header{
     position: relative;
+    height: 120px;
+}
+.body{
+    /*display: -webkit-box;*/
+    -webkit-box-flex: 1;
+    position: relative;
+}
+footer{
+    height: 100px;
 }
 .title{
     font-size: 80px;
@@ -60,6 +69,26 @@ header{
 }
 
 /********************** note-list ********/
+.note-list-container{
+    /*-webkit-box-flex: 1;*/
+    overflow-x: auto;
+}
+.note-list{
+    -webkit-column-width: 250px;
+    -webkit-column-gap: 0;
+
+    margin: 0 20px;
+    width: 1350px;
+    height: 420px;
+}
+.note-item{
+    padding: 5px 10px;
+    margin: 10px;
+    width: 250px;
+    height: 190px;
+    box-sizing: border-box;
+    display: inline-block;
+}
 .note-item-title{
     font-size: 30px;
 }
@@ -72,5 +101,60 @@ header{
 
 /********************* note-item color **********/
 .note-item{
+    background: -webkit-linear-gradient(0deg, #F43E31, #FD590B);
+}
+/********************* note-editor **********/
+.note-editor-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}
+.note-editor{
+    /*-webkit-box-flex: 1;*/
+    margin: 0 20px;
+    height: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: -webkit-linear-gradient(120deg, #FD590B, #F43E31);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.note-editor-header{
+    height: 70px;
+}
+.note-editor-time{
+    float: right;
+    font-size: 16px;
+    margin-top: 28px;
+}
+.note-editor-title{
+    font-size: 34px;
+    display: inline-block;
+}
+.note-editor-title input{
+    font-size: 34px;
+    padding: 0;
+    margin: 0;
+}
+.note-editor-action{
+    display: inline-block;
+    margin-left: 30px;
+}
 
+.note-editor-body{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+}
+.note-editor-content{
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+}
+.note-editor-content textarea{
+    margin: 0;
+    box-sizing: border-box;
+    resize: none;
 }

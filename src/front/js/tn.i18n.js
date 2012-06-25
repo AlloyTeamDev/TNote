@@ -1,25 +1,31 @@
 Jx().$package('tn.i18n', function(J){
 
-    this.defaultLanguage = 'zh_cn';
+    this.defaultLanguage = 'zh-CN';
 
     this.language = this.defaultLanguage;
 
-    this.message_zh_cn = {
-        'new': '新建',
-        'order': '排序'
-    };
-
-    this.message_en = {
-        'new': 'new',
-        'order': 'order'
+    var MESSAGE_LIST = {
+        'zh-CN': {
+            'new': '新建',
+            'order': '排序',
+            'edit': '编辑',
+            'save': '保存',
+            'dateFormat': 'YYYY/MM/DD',
+            'unnamed': '未命名',
+            'mustfilled': '必填'
+        },
+        'en': {
+            'new': 'new',
+            'order': 'order'
+        }
     };
 
     this.getMessage = function(key){
-        var message = this['message_' + this.language];
+        var message = MESSAGE_LIST[this.language];
         if(message[key]){
             return message[key];
         }else{
-            message = this['message_' + this.defaultLanguage];
+            message = MESSAGE_LIST[this.defaultLanguage];
             return message[key];
         }
     }

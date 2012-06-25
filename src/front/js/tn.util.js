@@ -1,4 +1,5 @@
 Jx().$package('tn.util', function(J){
+    var packageContext = this;
 
     /**
      * 获取点击的事件源, 该事件源是有 cmd 属性的 默认从 event.target 往上找三层,找不到就返回null
@@ -36,7 +37,7 @@ Jx().$package('tn.util', function(J){
      * function(param, target, event){
      * }
      */
-    this.bindCommends = function(targetElement, eventName, commends){
+    this.bindCommands = function(targetElement, eventName, commends){
         var defaultEvent = 'click';
         if(arguments.length === 1){
             commends = targetElement;
@@ -55,7 +56,7 @@ Jx().$package('tn.util', function(J){
             targetElement.setAttribute('cmd', 'void');
         }
         J.event.on(targetElement, eventName, function(e){
-            var target = mb.util.getActionTarget(e, -1, 'cmd', this);
+            var target = packageContext.getActionTarget(e, -1, 'cmd', this);
             if(target){
                 var cmd = target.getAttribute('cmd');
                 var param = target.getAttribute('param');
